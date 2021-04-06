@@ -1,0 +1,5 @@
+Exception ignored in: <function AGraph.__del__ at 0x7f49dabff430>
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.8/site-packages/pygraphviz/agraph.py", line 283, in __del__
+  File "/opt/conda/lib/python3.8/site-packages/pygraphviz/agraph.py", line 1000, in _close_handle
+TypeError: 'NoneType' object is not callable
