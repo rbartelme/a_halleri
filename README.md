@@ -5,5 +5,8 @@ This analysis uses a GPU enabled and cloud scalable [pytorch container](https://
 
 ## Analysis
 
-* Current analysis can be found written as a Jupyter Notebook in GoogleColab <a href="https://colab.research.google.com/drive/1d20Y10vlsGxlDij7_6DbVazD_FA3XJd0?usp=sharing" target="_blank">here</a>. 
-  * **NOTE:** the Colab Notebook will not have the CPU power to run the structure learning algorithm, it is very computationally intensive (~4 hrs on a server with >250 cores).
+* A description of the most current analysis can be found written as a Jupyter Notebook in GoogleColab <a href="https://colab.research.google.com/drive/1d20Y10vlsGxlDij7_6DbVazD_FA3XJd0?usp=sharing" target="_blank">here</a>. 
+ 
+* **NOTE:** the Colab Notebook will not have the CPU power to run the structure learning algorithm, it is very computationally intensive (~4 hrs on a server with >250 cores).
+
+* Optionally this could use CyVerse to host a notebook with the analysis data??
