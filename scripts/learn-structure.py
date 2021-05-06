@@ -42,9 +42,9 @@ le = LabelEncoder()
 for col in non_numeric_columns:
   dum_df[col] = le.fit_transform(dum_df[col])
 
-# learn structure with NOTEARS, over 1000 iterations,and keep edge weights > 0.8
+# learn structure with NOTEARS, over 1000 iterations,and keep edge weights > 0.95
 from causalnex.structure.notears import from_pandas
-sm = from_pandas(X=dum_df, max_iter=1000, w_threshold=0.8)
+sm = from_pandas(X=dum_df, max_iter=1000, w_threshold=0.95)
 #pickle the structure model
 import pickle
 # make pickle file binary
@@ -55,6 +55,11 @@ pickle.dump(sm, smp)
 smp.close()
 
 #output plot of learned graph
+# no need to apply thresholding, since this is taken care of in the sm with w_threshold
 from causalnex.plots import plot_structure
-plot = plot_structure(sm)
-plot.draw("sm_plot.png")
+viz = plot_structure(
+    sm,
+    graph_attributes={"scale": "0.5"},
+    all_node_attributes=NODE_STYLE.WEAK,
+    all_edge_attributes=EDGE_STYLE.WEAK)
+viz.draw("sm_plot.png")
