@@ -17,7 +17,7 @@ from causalnex.structure import StructureModel
 sm = StructureModel()
 
 # read in phenotyping data
-data = pd.read_csv('/work/Ahalleri_transplant_exp_F.txt', delimiter='\t')
+data = pd.read_csv('/work/data/Ahalleri_transplant_exp_F.txt', delimiter='\t')
 
 #drop features
 drop_col = ['code', 'comparison_type', 'comparison_pop']
