@@ -27,8 +27,8 @@ data = data.drop(columns=drop_col)
 from sklearn.preprocessing import LabelEncoder
 struct_data = data.copy()
 
-# drop na rows
-struct_data = struct_data.dropna()
+# remove na columns
+struct_data = struct_data.dropna(axis=1)
 # change sample to genotype to not interfere with code by invoking sample()
 struct_data = struct_data.rename(columns={"sample": "genotype"})
 
@@ -45,7 +45,14 @@ for col in non_numeric_columns:
 # learn structure with NOTEARS, over 1000 iterations,and keep edge weights > 0.8
 from causalnex.structure.notears import from_pandas
 sm = from_pandas(X=dum_df, max_iter=1000, w_threshold=0.8)
-
+#pickle the structure model
+import pickle
+# make pickle file binary
+smp = open("nt_sm_a_halleri", "wb")
+# dump the pickle; syntax = (model, filename)
+pickle.dump(sm, smp)
+# close the pickle
+smp.close()
 
 #output plot of learned graph
 from causalnex.plots import plot_structure

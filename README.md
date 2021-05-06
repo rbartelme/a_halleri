@@ -10,3 +10,15 @@ This analysis uses a GPU enabled and cloud scalable [pytorch container](https://
 * **NOTE:** the Colab Notebook will not have the CPU power to run the structure learning algorithm, it is very computationally intensive (~4 hrs on a server with >250 cores).
 
 * Optionally this could use CyVerse to host a notebook with the analysis data??
+
+---
+
+## Running Docker Container Image:
+
+To run the `causalnex` container image, mounting your current working directory (probably this repo) as the foler `/work` inside the spinning container. 
+
+`docker run --rm --gpus all -it -v $(pwd):/work -w /work rbartelme/pytorch-causalnex:0.0.2`
+
+### Example for running structure learning
+
+
