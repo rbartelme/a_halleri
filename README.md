@@ -18,5 +18,5 @@ This analysis uses a GPU enabled and cloud scalable [pytorch container](https://
 ### Example for running structure learning
 Run the `causalnex` container image, in the detached state `-d`, by  mounting your current working directory (assumes the docker user is running the process within this repo folder) as the folder `/work` inside the spinning container. Executing the script for structure learning 
 
-`docker run -d --rm --gpus all -it -v $(pwd):/work -w /work rbartelme/pytorch-causalnex:0.0.2`
+2docker run -d --rm --gpus all -v $(pwd):/work -w /work rbartelme/pytorch-causalnex:0.0.2 python /work/scripts/learn-structure.py`
 
