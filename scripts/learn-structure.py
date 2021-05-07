@@ -27,8 +27,8 @@ data = data.drop(columns=drop_col)
 from sklearn.preprocessing import LabelEncoder
 struct_data = data.copy()
 
-# remove na columns
-struct_data = struct_data.dropna(axis=1)
+# remove na rows
+struct_data = struct_data.dropna()
 # change sample to genotype to not interfere with code by invoking sample()
 struct_data = struct_data.rename(columns={"sample": "genotype"})
 
