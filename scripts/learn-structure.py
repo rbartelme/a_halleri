@@ -57,9 +57,5 @@ smp.close()
 #output plot of learned graph
 # no need to apply thresholding, since this is taken care of in the sm with w_threshold
 from causalnex.plots import plot_structure
-viz = plot_structure(
-    sm,
-    graph_attributes={"scale": "0.5"},
-    all_node_attributes=NODE_STYLE.WEAK,
-    all_edge_attributes=EDGE_STYLE.WEAK)
+viz = plot_structure(sm)
 viz.draw("sm_plot.png")
