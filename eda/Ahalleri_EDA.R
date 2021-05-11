@@ -1,3 +1,7 @@
+# Exploratory Data Analysis with R + bnlearn
+# This has been replaced with python code
+# and only serves to document initial data exploration
+
 library(tidyverse)
 library(bnlearn)
 
@@ -35,3 +39,24 @@ ah_hc <- hc(test_set, start = ah_graph, whitelist = wl)
 plot(ah_hc)
 ## Treatment = Metal or No Metal
 ## Stratified = Location 
+#-------
+# Testing for continuous variable quantiles
+#-------
+library(tidyverse)
+dum_df <- read_delim(file = "~/a_halleri/data/a_halleri_dummy_df.txt",
+                      delim = "\t")
+
+con_var <- select(dum_df, contains("F_"))
+
+convar_sum <- list(con_var, con_var) %>% 
+    map(gather, var, val) %>% 
+    map(group_by, var) %>% 
+    map(summarise, 
+        val = list(fivenum(val)), 
+        label = list(c('min', 'q1', 'med', 'q3', 'max'))) %>% 
+    map(unnest) %>% 
+    map(spread, label, val)
+
+head(convar_sum)
+
+# It is worth using the outliers method for causal nex descritization
